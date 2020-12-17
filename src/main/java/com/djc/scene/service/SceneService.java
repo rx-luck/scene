@@ -41,11 +41,16 @@ public class SceneService {
         return SceneService.iosCert;
     }
 
-    public User obtainUser(int userId) {
-        return userMapper.query(userId);
+    public User obtainUser(String mobileNumber) {
+        return userMapper.query(mobileNumber);
     }
 
     public void saveUser(User user) {
+        String mobileNumber = user.getMobileNumber();
+        User oldUser = userMapper.query(mobileNumber);
+        if(oldUser != null){
+            throw new IllegalArgumentException("该账号已被注册");
+        }
         userMapper.save(user);
     }
 }

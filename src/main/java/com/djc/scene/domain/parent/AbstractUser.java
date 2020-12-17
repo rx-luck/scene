@@ -1,8 +1,10 @@
 package com.djc.scene.domain.parent;
 
+import java.util.UUID;
+
 public class AbstractUser {
     public int id;
-    public String guid;
+    public String guid = UUID.randomUUID().toString();
 
     public int getId() {
         return id;

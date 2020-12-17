@@ -5,21 +5,23 @@
 
     <resultMap id="BaseResultMap" type="com.djc.scene.domain.User">
         <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="guid" jdbcType="VARCHAR" property="guid"/>
+        <result column="mobileNumber" jdbcType="VARCHAR" property="mobileNumber"/>
         <result column="userName" jdbcType="VARCHAR" property="userName" />
         <result column="passWord" jdbcType="VARCHAR" property="passWord" />
-        <result column="realName" jdbcType="VARCHAR" property="realName" />
     </resultMap>
 
     <select id="query" resultType="com.djc.scene.domain.User">
-        select * from user where id = #{id}
+        select * from user where mobileNumber = #{mobileNumber}
     </select>
 
     <insert id="save" parameterType="com.djc.scene.domain.User" useGeneratedKeys="true" keyProperty="id">
-        insert into user (id,passWord,userName,realName) values (
+        insert into user (id,guid,passWord,mobileNumber,userName) values (
              #{id,jdbcType=INTEGER},
+             #{guid,jdbcType=VARCHAR},
              #{passWord,jdbcType=VARCHAR},
-             #{userName,jdbcType=VARCHAR},
-             #{realName,jdbcType=VARCHAR}
+             #{mobileNumber,jdbcType=VARCHAR},
+             #{userName,jdbcType=VARCHAR}
         )
     </insert>
 </mapper>

@@ -18,9 +18,9 @@ public class SceneFacade {
     @Resource
     private SceneService sceneService;
 
-    public String saveConfig(MultipartFile file, IOSCertDto iosCertDto){
+    public String saveConfig(MultipartFile file, IOSCertDto iosCertDto) {
         IOSCert iosCert = SceneAssembler.toIOSCert(iosCertDto);
-        String intervalDate = sceneService.resolveIOSCert(file,iosCert);
+        String intervalDate = sceneService.resolveIOSCert(file, iosCert);
         try {
             iosCert.setCert(Base64Utils.toBase64(file.getBytes()));
             save(iosCert);
@@ -31,19 +31,12 @@ public class SceneFacade {
         return intervalDate;
     }
 
-    public void save(IOSCert iosCert){
+    public void save(IOSCert iosCert) {
         sceneService.saveConfig(iosCert);
     }
 
-    public IOSCertDto obtain() {
-        IOSCert iosCert = sceneService.obtain();
-        return SceneAssembler.toIOSCertDto(iosCert);
-    }
-
-    public User obtainUser(UserDto userDto) {
-         User user = SceneAssembler.toUser(userDto);
-        int userId = user.getId();
-        return sceneService.obtainUser(userId);
+    public User obtainUser(String mobileNumber) {
+        return sceneService.obtainUser(mobileNumber);
     }
 
     public void saveUser(UserDto userDto) {

@@ -1,18 +1,9 @@
 package com.djc.scene.dto;
 
 public class UserDto {
-    private Integer id;
     private String userName;
     private String passWord;
-    private String realName;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String mobileNumber;
 
     public String getUserName() {
         return userName;
@@ -30,21 +21,20 @@ public class UserDto {
         this.passWord = passWord;
     }
 
-    public String getRealName() {
-        return realName;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
     @Override
     public String toString() {
         return "UserDto{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
+                "userName='" + userName + '\'' +
                 ", passWord='" + passWord + '\'' +
-                ", realName='" + realName + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
                 '}';
     }
 }

@@ -34,27 +34,23 @@ public class SceneAssembler {
 
     public static User toUser(UserDto userDto) {
         User user = new User();
-        Integer id = userDto.getId();
-        String realName = userDto.getRealName();
         String userName = userDto.getUserName();
         String passWord = userDto.getPassWord();
-        user.setId(id);
-        user.setRealName(realName);
+        String mobileNumber = userDto.getMobileNumber();
         user.setUserName(userName);
         user.setPassWord(passWord);
+        user.setMobileNumber(mobileNumber);
         return user;
     }
 
     public static UserDto toUserDto(User user) {
         UserDto userDto = new UserDto();
-        Integer id = user.getId();
-        String realName = user.getRealName();
         String userName = user.getUserName();
         String passWord = user.getPassWord();
-        userDto.setId(id);
-        userDto.setRealName(realName);
+        String mobileNumber = user.getMobileNumber();
         userDto.setUserName(userName);
         userDto.setPassWord(passWord);
+        userDto.setMobileNumber(mobileNumber);
         return userDto;
     }
 }

@@ -7,9 +7,9 @@ public class ResultJson<T> {
     public static final String INNER_ERROR = "inner_error";
     public static final String BAD_REQUEST = "bad_request";
 
-    private T data;
     private int status;
     private String message;
+    private T data;
 
     public ResultJson() {
         this.message = OK;

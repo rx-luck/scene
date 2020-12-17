@@ -5,7 +5,7 @@ import com.djc.scene.domain.parent.AbstractUser;
 public class User extends AbstractUser {
     private String userName;
     private String passWord;
-    private String realName;
+    private String mobileNumber;
 
     public String getUserName() {
         return userName;
@@ -23,21 +23,11 @@ public class User extends AbstractUser {
         this.passWord = passWord;
     }
 
-    public String getRealName() {
-        return realName;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
-                ", realName='" + realName + '\'' +
-                '}';
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 }

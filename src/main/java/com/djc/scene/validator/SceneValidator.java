@@ -23,13 +23,13 @@ public class SceneValidator implements Validator {
     public void validate(Object obj, Errors errors) {
         if(obj instanceof UserDto){
             String passWord = ((UserDto) obj).getPassWord();
-            String realName = ((UserDto) obj).getRealName();
+            String mobileNumber = ((UserDto) obj).getMobileNumber();
             String userName = ((UserDto) obj).getUserName();
             if(!StringUtils.hasText(passWord)){
                 errors.rejectValue("passWord",null,"密码不能为空");
             }
-            if(!StringUtils.hasText(realName)){
-                errors.rejectValue("realName",null,"真实姓名不能为空");
+            if(!StringUtils.hasText(mobileNumber)){
+                errors.rejectValue("mobileNumber",null,"电话号码不能为空");
             }
             if(!StringUtils.hasText(userName)){
                 errors.rejectValue("userName",null,"姓名不能为空");

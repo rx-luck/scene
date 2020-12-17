@@ -42,13 +42,9 @@ public class SceneController {
         return  ResultJson.success(certDate);
     }
 
-    @RequestMapping( value = "/user/get",method = RequestMethod.POST)
-    public ResultJson getUser(@RequestBody @Valid UserDto userDto, BindingResult result){
-        if(result.hasErrors()){
-            List<ErrorResult> errorResults = this.errorList(result.getAllErrors());
-            return ResultJson.failed(errorResults,ResultCode.BAD_REQUEST);
-        }
-        return ResultJson.success(sceneFacade.obtainUser(userDto));
+    @RequestMapping( value = "/user/get",method = RequestMethod.GET)
+    public ResultJson getUser(String mobileNumber){
+        return ResultJson.success(sceneFacade.obtainUser(mobileNumber));
     }
 
     @RequestMapping( value = "/user/save",method = RequestMethod.POST)
@@ -60,6 +56,8 @@ public class SceneController {
         try{
             sceneFacade.saveUser(userDto);
             return ResultJson.success();
+        }catch (IllegalArgumentException e){
+            return ResultJson.failed(ResultCode.BAD_REQUEST,e.getMessage());
         }catch(Exception e) {
             return ResultJson.failed(ResultCode.BAD_REQUEST,e.getMessage());
         }

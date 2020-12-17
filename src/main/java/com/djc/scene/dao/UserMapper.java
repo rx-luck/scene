@@ -5,6 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserMapper {
-    User query(int id);
+    User query(String mobileNumber);
     void save(User user);
 }
